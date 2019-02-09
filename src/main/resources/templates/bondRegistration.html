@@ -1,16 +1,21 @@
 <!DOCTYPE HTML SYSTEM "about:legacy-compat">
 <html xmlns:th="http://www.thymeleaf.org">
 
-<!-- 共通 -->
 <head th:replace="common/common :: head"></head>
 <header th:replace="common/common :: header"></header>
 
 <body>
 	<div class="container p-5">
 		<div class="text-center p-3">
+		<div>
 			<h2 class="ft-mono" id="hoge1">Bond Registration</h2>
-  <div id="content">
-  </div>
+			
+			<a href="http://www.tohoho-web.com/ex/react.html">React入門</a>
+			
+		    <div id="div1" class="border w-50 bg-danger p-2 m-auto font-weight-bold">
+		      Draggable
+		    </div>
+			
 			<form class="m-3 p-4" th:action="@{/confirm}" th:object="${bondInfoBean}" method="post">
 
 				<span th:if="${#fields.hasErrors('all')}" class="text-danger" th:errors="*{bondNm}">Error</span>
@@ -77,6 +82,7 @@
 			        </tbody>
 			    </table>
 			</form>
+		</div>
 		</div>
 
 

@@ -1,44 +1,53 @@
 <!DOCTYPE HTML SYSTEM "about:legacy-compat">
 <html xmlns:th="http://www.thymeleaf.org">
 
+	<!-- 保留 -->
+	
+	<!-- React -->
+	<script src="/js/react/react.js"></script>
+	<script src="/js/react/react-dom.js"></script>
+	<script src="/js/react/babel.min.js"></script>
+
+	<!-- JS読み込み -->
+	<script src="/js/script_babel.js" type="text/babel"></script>
+	<script src="/js/script_jquery.js"></script>
+	
+	<!-- 保留 -->
+	
 <!-- /* 共通読み込みファイル */ -->
 <head th:fragment="head">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Montserrat" rel="stylesheet">
 	<!-- FontAwesome -->
-	<link href="/css/all.min.css" rel="stylesheet">
+	<link href="/css/fontawesome/css/all.min.css" rel="stylesheet">
+	<!-- jQuery読み込み -->
+	<script src="/js/jquery-3.3.1.js"></script>
+	<script src="/js/jquery-ui.js"></script>
 	<!-- BootstrapのCSS読み込み -->
 	<link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 	<!-- BootstrapのJS読み込み -->
-	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/bootstrap/bootstrap.min.js"></script>
+	
 	<!-- カスタムCSS読み込み -->
 	<link href="/css/custom.css" rel="stylesheet">
-
-
-<script src="/js/React/react.js"></script>
-<script src="/js/React/react-dom.js"></script>
-<script src="/js/React/babel.min.js"></script>
-
 	<!-- JS読み込み -->
-	<script src="/js/script_babel.js" type="text/babel"></script>
+	<script src="/js/script_jquery.js"></script>
+	
 	<title th:text="*{ pageTitle }"></title>
 </head>
 
 <!-- /* 共通header */ -->
 <header th:fragment="header">
-	<div class="row header font-weight-bold text-center">
-		<!-- header left -->
-		<div class="col-sm-10 bg-dark">
-			<div class="row">
-				<div class="col-sm-9 text-left">
-					<a href="#" class="text-light pl-5">BRETS</a>
-				</div>
-				<a href="#" class="col-sm-3 h-100 w-100 d-block text-light header-right"><i class="fas fa-user-circle fa-lsm">&nbsp;#<span th:text="*{ bondInfoBean.issuerCd }">aaa</span></i></a>
-			</div>
+	<div class="row header font-weight-bold text-center bg-dark">
+		<div class="col-lg-2">
+			<a href="#" class="text-light pl-5">BRETS</a>
 		</div>
-		<!-- header right -->
-		<div class="col-sm-2 bg-success text-center p-0">
+		<div class="col-lg-5"></div>
+		<div class="col-lg-3 p-0">
+			<a href="#" class="h-100 w-100 d-block text-light header-right"><i class="fas fa-user-circle fa-lsm">&nbsp;#<span th:text="*{ bondInfoBean.issuerCd }"></span></i></a>
+		</div>
+		<div class="col-lg-2 bg-success text-center p-0">
 			<a href="#" class="text-light pr-3 h-100 w-100 d-block header-right"><i class="fas fa-sign-out-alt fa-lsm">&nbsp;BYE</i></a>
 		</div>
 	</div>
