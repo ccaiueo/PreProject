@@ -1,0 +1,74 @@
+<!DOCTYPE HTML SYSTEM "about:legacy-compat">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- 共通 -->
+<head th:replace="common/common :: head"></head>
+<header th:replace="common/common :: header"></header>
+
+<body>
+	<div class="container p-5">
+		<div class="text-center p-3">
+			<h2 class="text-danger ft-mono">Bond Registration</h2>
+			<form class="m-3 p-4" th:action="@{/regist}" th:object="${bondInfoBean}" method="post">
+			    <table class="mx-auto text-left w-75">
+			        <tbody>
+			            <tr>
+			                <th class="w-50 text-right pr-3">Bond Name</th>
+			                <td>
+								<input readonly type="text" name="bondNm" th:value="*{ bondNm }" class="form-control-plaintext">
+			                </td>
+			            </tr>
+			            <tr>
+			                <th class="text-right pr-3">Issuer Code</th>
+			                <td>
+			                	<input readonly type="text" name="issuerCd" th:value="*{ issuerCd }" class="form-control-plaintext">
+			                </td>
+			            </tr>
+			            <tr>
+			                <th class="text-right pr-3">CCY</th>
+			                <td><input readonly type="text" name="ccy" th:value="*{ ccy }" class="form-control-plaintext"></td>
+			            </tr>
+			            <tr>
+			                <th class="text-right pr-3">Issue Price</th>
+			                <td><input readonly type="text" name="issuePrc" th:value="*{ issuePrc }" class="form-control-plaintext"></td>
+			            </tr>
+			            <tr>
+			                <th class="text-right pr-3">Issue Amount</th>
+			                <td><input readonly type="text" name="issueAmt" th:value="*{ issueAmt }" class="form-control-plaintext"></td>
+			            </tr>
+			            <tr>
+			                <th class="text-right pr-3">Denomination</th>
+			                <td><input readonly type="text" name="denomination" th:value="*{ denomination }" class="form-control-plaintext"></td>
+			            </tr>
+			            <tr>
+			                <th class="text-right pr-3">Minimum Trade Amount</th>
+			                <td><input readonly type="text" name="minTradeAmt" th:value="*{ minTradeAmt }" class="form-control-plaintext"></td>
+			            </tr>
+			            <tr>
+			                <th class="text-right pr-3">Coupon Rate</th>
+			                <td><input readonly type="text" name="couponRate" th:value="*{ couponRate }" class="form-control-plaintext"></td>
+			            </tr>
+			            <tr>
+			                <th class="text-right pr-3">Day Count Convention</th>
+			                <td><input readonly type="text" name="dayCountConvention" th:value="*{ dayCountConvention }" class="form-control-plaintext"></td>
+			            </tr>
+			            <tr>
+			                <th class="text-right pr-3">Issue Date</th>
+			                <td><input readonly type="text" name="issueDt" th:value="*{ issueDt }" class="form-control-plaintext"></td>
+			            </tr>
+			            <tr>
+			                <th class="text-right pr-3">Maturity Date</th>
+			                <td><input readonly type="text" name="maturityDt" th:value="*{ maturityDt }" class="form-control-plaintext"></td>
+			            </tr>
+			            <tr>
+			                <td colspan="2" class="text-center">
+								<input class="btn btn-success btn-sm p-3 m-3" type="submit" value="REGIST" />
+			                </td>
+			            </tr>
+			        </tbody>
+			    </table>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

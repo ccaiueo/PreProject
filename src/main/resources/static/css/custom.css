@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.ft-mono {
+	font-family: 'Major Mono Display', monospace;
+}
+a, i, span {
+    vertical-align: middle;
+}
+a:hover {
+	text-decoration: none;
+}
+
+table, th, td {
+	padding: 5px 0 5px 0;
+}
+
+header {
+	line-height: 65px;
+}
+
+.header-right:hover { background-color: black; }

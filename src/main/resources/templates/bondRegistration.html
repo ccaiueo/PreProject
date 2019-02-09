@@ -1,0 +1,166 @@
+<!DOCTYPE HTML SYSTEM "about:legacy-compat">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- 共通 -->
+<head th:replace="common/common :: head"></head>
+<header th:replace="common/common :: header"></header>
+
+<body>
+	<div class="container p-5">
+		<div class="text-center p-3">
+			<h2 class="ft-mono" id="hoge1">Bond Registration</h2>
+  <div id="content">
+  </div>
+			<form class="m-3 p-4" th:action="@{/confirm}" th:object="${bondInfoBean}" method="post">
+
+				<span th:if="${#fields.hasErrors('all')}" class="text-danger" th:errors="*{bondNm}">Error</span>
+
+		        <div th:each="error : ${#fields.detailedErrors()}">
+		            <span th:text="${error.message}">Error message</span>
+		        </div>
+
+
+			    <table class="mx-auto text-left w-75">
+			        <tbody>
+			            <tr>
+			                <th class="w-50 text-right pr-3">Bond Name</th>
+			                <td>
+								<input type="text" name="bondNm" th:value="*{ bondNm }" class="form-control form-control-sm">
+			                </td>
+			            </tr>
+			            <tr>
+			                <th class="text-right pr-3">Issuer Code</th>
+			                <td>
+			                	<input readonly type="text" name="issuerCd" th:value="*{ issuerCd }" class="form-control-plaintext">
+			                </td>
+			            </tr>
+			            <tr>
+			                <th class="text-right pr-3">CCY</th>
+			                <td><input type="text" name="ccy" th:value="*{ ccy }" class="form-control form-control-sm"></td>
+			            </tr>
+			            <tr>
+			                <th class="text-right pr-3">Issue Price</th>
+			                <td><input type="text" name="issuePrc" th:value="*{ issuePrc }" class="form-control form-control-sm"></td>
+			            </tr>
+			            <tr>
+			                <th class="text-right pr-3">Issue Amount</th>
+			                <td><input type="text" name="issueAmt" th:value="*{ issueAmt }" class="form-control form-control-sm"></td>
+			            </tr>
+			            <tr>
+			                <th class="text-right pr-3">Denomination</th>
+			                <td><input type="text" name="denomination" th:value="*{ denomination }" class="form-control form-control-sm"></td>
+			            </tr>
+			            <tr>
+			                <th class="text-right pr-3">Minimum Trade Amount</th>
+			                <td><input type="text" name="minTradeAmt" th:value="*{ minTradeAmt }" class="form-control form-control-sm"></td>
+			            </tr>
+			            <tr>
+			                <th class="text-right pr-3">Coupon Rate</th>
+			                <td><input type="text" name="couponRate" th:value="*{ couponRate }" class="form-control form-control-sm"></td>
+			            </tr>
+			            <tr>
+			                <th class="text-right pr-3">Day Count Convention</th>
+			                <td><input type="text" name="dayCountConvention" th:value="*{ dayCountConvention }" class="form-control form-control-sm"></td>
+			            </tr>
+			            <tr>
+			                <th class="text-right pr-3">Issue Date</th>
+			                <td><input type="text" name="issueDt" th:value="*{ issueDt }" class="form-control form-control-sm" id="calendar"></td>
+			            </tr>
+			            <tr>
+			                <td colspan="2" class="text-center">
+							    <p>Maturity Date</p>
+							    <input type="text" name="" class="form-control form-control-sm" placeholder="required">
+								<em th:if="${#fields.hasErrors('maturityDt')}" th:errors="*{ maturityDt }">Name Error</em>
+								<input class="btn btn-success btn-sm p-3 m-3" type="submit" value="COMFIRM" />
+			                </td>
+			            </tr>
+			        </tbody>
+			    </table>
+			</form>
+		</div>
+
+
+		<!-- Bond List -->
+		<div class="text-center p-3">
+			<h2 class="text-danger ft-mono">Bond List</h2>
+			<form class="m-3 pt-4" th:action="@{/***********}" method="post">
+
+				<table class="table table-striped table-dark">
+				  <thead>
+				    <tr>
+				      <th scope="col">#</th>
+				      <th scope="col">First</th>
+				      <th scope="col">Last</th>
+				      <th scope="col">Handle</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">1</th>
+				      <td>Mark</td>
+				      <td>Otto</td>
+				      <td>@mdo</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">2</th>
+				      <td>Jacob</td>
+				      <td>Thornton</td>
+				      <td>@fat</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">3</th>
+				      <td>Larry</td>
+				      <td>the Bird</td>
+				      <td>@twitter</td>
+				    </tr>
+				  </tbody>
+				</table>
+
+				<table class="table table-striped">
+				  <thead>
+				    <tr>
+				      <th scope="col">#</th>
+				      <th scope="col">First</th>
+				      <th scope="col">Last</th>
+				      <th scope="col">Handle</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">1</th>
+				      <td>Mark</td>
+				      <td>Otto</td>
+				      <td>@mdo</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">2</th>
+				      <td>Jacob</td>
+				      <td>Thornton</td>
+				      <td>@fat</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">3</th>
+				      <td>Larry</td>
+				      <td>the Bird</td>
+				      <td>@twitter</td>
+				    </tr>
+				  </tbody>
+				</table>
+			</form>
+		</div>
+
+
+		<div class="text-center">
+				<i class="fas fa-igloo fa-xs"></i>
+				<i class="fas fa-igloo fa-sm"></i>
+				<i class="fas fa-igloo fa-lg"></i>
+				<i class="fas fa-igloo fa-2x"></i>
+				<i class="fas fa-igloo fa-3x"></i>
+				<i class="fas fa-igloo fa-5x"></i>
+				<i class="fas fa-igloo fa-7x"></i>
+				<i class="fas fa-igloo fa-10x"></i>
+		</div>
+
+	</div>
+</body>
+</html>
