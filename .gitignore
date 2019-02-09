@@ -1,9 +1,6 @@
 /target/
 !.mvn/wrapper/maven-wrapper.jar
 
-pom_.xml
-pom.xml
-
 ### STS ###
 .apt_generated
 .classpath
