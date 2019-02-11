@@ -35,9 +35,7 @@ public class EmployeeController {
     	BondInfo formbean = new BondInfo();
         formbean.setIssuerCd("070707");
         models.addObject("bondInfoBean", formbean);
-        // ページタイトル
         models.addObject("pageTitle", PAGE_TITLE.BOND_REGISTRATION);
-        // 遷移先URL
         models.setViewName("bondregistration");
 
         // for test
@@ -58,16 +56,18 @@ public class EmployeeController {
         if(result.hasErrors()) {
         	models.setViewName("bondregistration");
         } else {
-            // 遷移先URL
+        	// あああｓじょあｋmoaaaあいう
+        	// あいうえおあいう
             models.setViewName("bondregistrationConfirm");
         }
+    	// ああああ
 
 
 
         // for test
 
 //        // JPA
-//        System.out.println("JPA版" + repository.findAll().toString());
+//        System.out.println("JPA版あ" + repository.findAll().toString());
 //        // Mybatis
 //        System.out.println("mapper(xml使用): " + service.get());
 //        System.out.println("mapper(@使用) : " + service.select());

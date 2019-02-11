@@ -5,7 +5,7 @@
 	<meta th:replace="common/commonReading">
 	<title>SB Admin 2 - Dashboard</title>
 </head>
-
+<div></div>
 <body id="page-top">
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -33,12 +33,21 @@
           
           <!-- テストフォーム -->
           <div class="">
-     		<form name="TEST1" class="d-sm-flex align-items-center justify-content-between mb-4" action="/admin/sec" method="post">
-	      		<span class="mb-4">MUR&nbsp;</span>
-	      		<input type="text" name="message" th:value="*{ message }" class="form-control form-control-sm w-75 d-block mb-4">&nbsp;
-	      		<a href="javascript:TEST1.submit()" class="d-sm-inline-block btn btn-sm btn-danger text-light align-text-top mb-4">&nbsp;&nbsp;&nbsp;Tweet&nbsp;&nbsp;&nbsp;</a>
-     		</form>
-     		
+            <form  action="/admin/sec" method="post" th:object="${bondInfoBean}" name="TEST1" class="d-sm-flex align-items-center mb-4">
+              <span class="mb-4">テスト</span>
+              <input type="text" name="bondNm" th:value="*{ bondNm }" class="form-control form-control-sm w-50 d-block mb-4 mr-4">
+              <a href="javascript:TEST1.submit()" class="d-sm-inline-block btn btn-sm btn-danger text-light font-weight-bolder align-text-top mb-4">&nbsp;&nbsp;&nbsp;Tweet&nbsp;&nbsp;&nbsp;</a>
+            </form>
+          </div>
+          <div class="d-sm-flex align-items-center mb-4">
+            <span class="mb-4">出力：&nbsp;</span>
+            <span class="mb-4" th:text="${bondInfoBean.bondNm}"></span>
+          </div>
+          <!-- セッションクローズ -->
+          <div class="">
+            <form  action="/admin/close" method="post" name="sessionForm" class="d-sm-flex align-items-center mb-4">
+              <a href="javascript:sessionForm.submit()" class="d-sm-inline-block btn btn-sm btn-danger text-light font-weight-bolder align-text-top mb-4">&nbsp;&nbsp;&nbsp;sessionClose&nbsp;&nbsp;&nbsp;</a>
+            </form>
           </div>
             
           <!-- Content Row -->
