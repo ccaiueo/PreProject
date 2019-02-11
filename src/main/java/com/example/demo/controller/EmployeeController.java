@@ -38,7 +38,7 @@ public class EmployeeController {
         // ページタイトル
         models.addObject("pageTitle", PAGE_TITLE.BOND_REGISTRATION);
         // 遷移先URL
-        models.setViewName("index");
+        models.setViewName("bondregistration");
 
         // for test
 
