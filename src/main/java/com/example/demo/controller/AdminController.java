@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,6 +23,7 @@ import com.example.demo.service.DBService;
 @SessionAttributes("userInfo")
 public class AdminController {
 
+	// メモ 返り値をStringにする時はModelAndViewではなくModelを使う。（既存のものは良いが増やせない）
     
     /**
      * セッションのオブジェクト代入格納.
@@ -38,16 +40,19 @@ public class AdminController {
 	private DBService service;
 	/** admin共通URL */
 	private static final String DIR = "admin";
-	ModelAndView model = new ModelAndView();
+	
+	
 
 	
     /**
      * 初期表示.
      * @return URL
      */
-    @RequestMapping(value= DIR + "/show", method=RequestMethod.GET)
-    public String show() {
-
+    @RequestMapping(value= DIR + "/dashboard", method=RequestMethod.GET)
+    public String dashboard(Model model) {
+    	
+    	// メニュー用
+    	model.addAttribute("dashboard", "active");
         return "index";
     }
     
@@ -58,24 +63,24 @@ public class AdminController {
      * @return
      */
     @RequestMapping(value="admin/sec", method=RequestMethod.POST)
-    public String sec(@ModelAttribute ("tweet") String tweet, @ModelAttribute("userInfo") UserInfo userInfo) {
+    public String sec(@ModelAttribute ("tweet2") String tweet2, @ModelAttribute ("tweet") String tweet, @ModelAttribute("userInfo") UserInfo userInfo, Model model) {
 
-        model.addObject("tweet", tweet);
-        model.addObject("userInfo", userInfo);
+        model.addAttribute("tweet", tweet);
+        model.addAttribute("userInfo", userInfo);
 
         System.out.println("SEC");
         return "index";
     }
     
     @RequestMapping(value="admin/session", method=RequestMethod.POST)
-    public String session(@ModelAttribute ("name") String name, @ModelAttribute("userInfo") UserInfo userInfo) {
+    public String session(@ModelAttribute ("name") String name, @ModelAttribute("userInfo") UserInfo userInfo, Model model) {
     	
     	System.out.println("SESSION");
     	
     	// 	sessionに格納
     	setUserInfo(userInfo);
     	
-    	model.addObject("name", name);
+    	model.addAttribute("name", name);
         return "blank";
     }
     
@@ -90,6 +95,17 @@ public class AdminController {
     	
         sessionStatus.setComplete();
         return "index";
+        
+    }
+    
+
+    @RequestMapping(value="admin/cards", method=RequestMethod.POST)
+    public String cards(Model model) {
+    	// メニュー用
+    	model.addAttribute("components", "active");
+    	model.addAttribute("pages", "active");
+    	model.addAttribute("customComponents", "show");
+        return "cards";
         
     }
     

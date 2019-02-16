@@ -5,8 +5,9 @@
 	<meta th:replace="common/commonReading">
 	<title>SB Admin 2 - Dashboard</title>
 </head>
-<div></div>
+
 <body id="page-top">
+
   <!-- Page Wrapper -->
   <div id="wrapper">
 
@@ -36,8 +37,10 @@
           <!-- テストフォーム -->
           <div class="">
             <form  action="/admin/sec" method="post" name="TEST1" class="d-sm-flex align-items-center justify-content-between mb-4">
-              <span class="mb-4">テスト</span>
+              <span class="mb-4">tweet</span>
               <input type="text" name="tweet" th:value="*{tweet}" class="form-control form-control-sm w-50 d-block mb-4 mr-4">
+              <span class="mb-4">テスト</span>
+              <input type="text" name="tweet2" th:value="*{tweet2}" class="form-control form-control-sm w-50 d-block mb-4 mr-4">
               <a href="javascript:TEST1.submit()" class="d-sm-inline-block btn btn-sm btn-danger text-light font-weight-bolder align-text-top mb-4 pr-5 pl-5">
               	Tweet
            	  </a>
@@ -373,7 +376,7 @@
   <!-- Logout Modal-->
   <div th:replace="common/logoutModal"></div>
 
-  <!-- Bootstrap core JavaScript-->
+  <!-- JavaScript-->
   <script th:replace="common/commonJs"></script>
 
 </body>

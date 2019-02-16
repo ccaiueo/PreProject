@@ -35,6 +35,7 @@ public class EmployeeController {
     	BondInfo formbean = new BondInfo();
         formbean.setIssuerCd("070707");
         models.addObject("bondInfoBean", formbean);
+        models.addObject("aiueo", "aiueo");
         models.addObject("pageTitle", PAGE_TITLE.BOND_REGISTRATION);
         models.setViewName("bondregistration");
 
@@ -56,12 +57,10 @@ public class EmployeeController {
         if(result.hasErrors()) {
         	models.setViewName("bondregistration");
         } else {
-        	// あああｓじょあｋmoaaaあいう
-        	// あいうえおあいう
+
             models.setViewName("bondregistrationConfirm");
         }
     	// ああああ
-
 
 
         // for test
