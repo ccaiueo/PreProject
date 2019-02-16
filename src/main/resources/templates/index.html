@@ -3,7 +3,7 @@
 
 <head>
 	<meta th:replace="common/commonReading">
-	<title>SB Admin 2 - Dashboard</title>
+	<title>Dashboard</title>
 </head>
 
 <body id="page-top">
@@ -33,7 +33,36 @@
             	<i class="fas fa-download fa-sm text-white-50"></i> Generate Report
             </a>
           </div>
-          
+
+          <!-- Content Row -->
+          <div class="row">
+
+            <div class="col-lg-6 mb-4">
+
+              <!-- おしらせ -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">おしらせ</h6>
+                </div>
+                <div class="card-body">
+                  <div class="text-center">
+					<span>疎通確認ができているところ</span>
+                  </div>
+                  <h6 class="m-0 font-weight-bold text-secondery">ここ</h6>
+                  <p class="m-0">・Dashboard内の～sessionCloseまでのボタン</p>
+                  <p class="m-0">・menu ニコニコアイコン</p>
+                  <p class="m-0">・menu あそびば</p>
+                  <p class="m-0">・menu Create→Ticket</p>
+                  <p class="m-0">・menu Components→Cards</p>
+                  <h6 class="m-0 mt-2 font-weight-bold text-secondery">あそびば</h6>
+                  <p class="m-0">・BondNameを空でConfirmするとエラーメッセージ</p>
+                  <p class="m-0">・jqueryで遊ぶところ <a target="_blank" rel="nofollow" href="https://jqueryui.com/draggable/">参考：ドラッグするやつ</a></p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
           <!-- テストフォーム -->
           <div class="">
             <form  action="/admin/sec" method="post" name="TEST1" class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -73,7 +102,7 @@
               <a href="javascript:sessionForm.submit()" class="d-sm-inline-block btn btn-sm btn-danger text-light font-weight-bolder align-text-top mb-4">&nbsp;&nbsp;&nbsp;sessionClose&nbsp;&nbsp;&nbsp;</a>
             </form>
           </div>
-            
+
           <!-- Content Row -->
           <div class="row">
 
@@ -372,7 +401,7 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-  
+
   <!-- Logout Modal-->
   <div th:replace="common/logoutModal"></div>
 

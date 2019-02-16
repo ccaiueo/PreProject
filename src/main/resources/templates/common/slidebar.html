@@ -20,17 +20,17 @@
 		<form method="get" name="form1" action="/show">
 		    <a class="nav-link" href="javascript:form1.submit()">
 		      <i class="fas fa-fw fa-tachometer-alt"></i>
-		      <span>Dashboardあ</span></a>
+		      <span>あそびば</span></a>
 		</form>
 	  </li>
 
       <!-- Nav Item - Create Collapse Menu -->
       <li th:class="'nav-item ' + ${activeCreate}">
-        <a th:class="${activeCreate} == null ? 'nav-link collapsed' : 'nav-link'" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a th:class="${activeCreate} == null ? 'nav-link collapsed' : 'nav-link'" href="#" data-toggle="collapse" data-target="#collapseCreate" aria-expanded="true" aria-controls="collapseCreate">
           <i class="fas fa-plus-square"></i>
           <span>Create</span>
         </a>
-        <div id="collapseTwo" th:class="'collapse ' + ${showCategory}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseCreate" th:class="'collapse ' + ${showCategory}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Category:</h6>
             <a class="collapse-item" href="buttons.html">Task</a>
