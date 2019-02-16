@@ -11,7 +11,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-	<ul th:replace="common/slidebar"></ul>
+	<ul th:replace="common/slidebar :: slidebar"></ul>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -27,21 +27,42 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboardダッシュボード</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            	<i class="fas fa-download fa-sm text-white-50"></i> Generate Report
+            </a>
           </div>
           
           <!-- テストフォーム -->
           <div class="">
-            <form  action="/admin/sec" method="post" th:object="${bondInfoBean}" name="TEST1" class="d-sm-flex align-items-center mb-4">
+            <form  action="/admin/sec" method="post" name="TEST1" class="d-sm-flex align-items-center justify-content-between mb-4">
               <span class="mb-4">テスト</span>
-              <input type="text" name="bondNm" th:value="*{ bondNm }" class="form-control form-control-sm w-50 d-block mb-4 mr-4">
-              <a href="javascript:TEST1.submit()" class="d-sm-inline-block btn btn-sm btn-danger text-light font-weight-bolder align-text-top mb-4">&nbsp;&nbsp;&nbsp;Tweet&nbsp;&nbsp;&nbsp;</a>
+              <input type="text" name="tweet" th:value="*{tweet}" class="form-control form-control-sm w-50 d-block mb-4 mr-4">
+              <a href="javascript:TEST1.submit()" class="d-sm-inline-block btn btn-sm btn-danger text-light font-weight-bolder align-text-top mb-4 pr-5 pl-5">
+              	Tweet
+           	  </a>
             </form>
           </div>
           <div class="d-sm-flex align-items-center mb-4">
             <span class="mb-4">出力：&nbsp;</span>
-            <span class="mb-4" th:text="${bondInfoBean.bondNm}"></span>
+            <span class="mb-4" th:text="${tweet}"></span>
+          </div>
+          <!-- セッションテスト -->
+          <div class="">
+            <form  action="/admin/session" method="post" th:object="${userInfo}" name="TEST2" class="d-sm-flex align-items-center justify-content-between mb-4">
+              <span class="mb-4">name</span>
+              <input type="text" name="name" th:value="${name}" class="form-control form-control-sm w-50 d-block mb-4 mr-4">
+              <span class="mb-4">userId</span>
+              <input type="text" name="userId" th:value="*{userId}" class="form-control form-control-sm w-50 d-block mb-4 mr-4">
+
+              <a href="javascript:TEST2.submit()" class="d-sm-inline-block btn btn-sm btn-danger text-light font-weight-bolder align-text-top mb-4 pr-5 pl-5">
+              	Register
+           	  </a>
+            </form>
+          </div>
+          <div class="d-sm-flex align-items-center mb-4">
+            <span class="mb-4">出力：&nbsp;</span>
+            <span class="mb-4" th:text="${NAME}"></span>
           </div>
           <!-- セッションクローズ -->
           <div class="">
