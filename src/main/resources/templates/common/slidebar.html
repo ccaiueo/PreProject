@@ -5,7 +5,7 @@
     <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar"  th:fragment="slidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin/dashboard">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -23,7 +23,7 @@
 		      <span>Dashboardあ</span></a>
 		</form>
 	  </li>
-	  
+
       <!-- Nav Item - Create Collapse Menu -->
       <li th:class="'nav-item ' + ${activeCreate}">
         <a th:class="${activeCreate} == null ? 'nav-link collapsed' : 'nav-link'" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -33,9 +33,9 @@
         <div id="collapseTwo" th:class="'collapse ' + ${showCategory}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Category:</h6>
-            <a class="collapse-item" href="buttons.html">Ticket</a>
-	        <form method="post" name="cards1" action="/admin/cards">
-	        	<a th:class="'collapse-item ' + ${activeCreate}" href="javascript:cards1.submit()">Task</a>
+            <a class="collapse-item" href="buttons.html">Task</a>
+	        <form method="post" name="cards1" action="/admin/create/ticket">
+	        	<a th:class="'collapse-item ' + ${activeTiclet}" href="javascript:cards1.submit()">Ticket</a>
 	       	</form>
           </div>
         </div>
@@ -48,8 +48,8 @@
       <div class="sidebar-heading">
         Interface
       </div>
-      
-      
+
+
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li th:class="'nav-item ' + ${components}">
