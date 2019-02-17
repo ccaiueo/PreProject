@@ -36,9 +36,7 @@
 
           <!-- Content Row -->
           <div class="row">
-
             <div class="col-lg-6 mb-4">
-
               <!-- おしらせ -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -49,58 +47,75 @@
 					<span>疎通確認ができているところ</span>
                   </div>
                   <h6 class="m-0 font-weight-bold text-secondery">ここ</h6>
+                  <small>
                   <p class="m-0">・Dashboard内の～sessionCloseまでのボタン</p>
                   <p class="m-0">・menu ニコニコアイコン</p>
                   <p class="m-0">・menu あそびば</p>
                   <p class="m-0">・menu Create→Ticket</p>
                   <p class="m-0">・menu Components→Cards</p>
+                  </small>
                   <h6 class="m-0 mt-2 font-weight-bold text-secondery">あそびば</h6>
+                  <small>
                   <p class="m-0">・BondNameを空でConfirmするとエラーメッセージ</p>
                   <p class="m-0">・jqueryで遊ぶところ <a target="_blank" rel="nofollow" href="https://jqueryui.com/draggable/">参考：ドラッグするやつ</a></p>
+                  </small>
                 </div>
               </div>
-
             </div>
-          </div>
+            <div class="col-lg-6 mb-4">
 
-          <!-- テストフォーム -->
-          <div class="">
-            <form  action="/admin/sec" method="post" name="TEST1" class="d-sm-flex align-items-center justify-content-between mb-4">
-              <span class="mb-4">tweet</span>
-              <input type="text" name="tweet" th:value="*{tweet}" class="form-control form-control-sm w-50 d-block mb-4 mr-4">
-              <span class="mb-4">テストa</span>
-              <input type="text" name="tweet2" th:value="*{tweet2}" class="form-control form-control-sm w-50 d-block mb-4 mr-4">
-              <a href="javascript:TEST1.submit()" class="d-sm-inline-block btn btn-sm btn-danger text-light font-weight-bolder align-text-top mb-4 pr-5 pl-5">
-              	Tweet
-           	  </a>
-            </form>
-          </div>
-          <div class="d-sm-flex align-items-center mb-4">
-            <span class="mb-4">出力：&nbsp;</span>
-            <span class="mb-4" th:text="${tweet}"></span>
-          </div>
-          <!-- セッションテスト -->
-          <div class="">
-            <form  action="/admin/session" method="post" th:object="${userInfo}" name="TEST2" class="d-sm-flex align-items-center justify-content-between mb-4">
-              <span class="mb-4">name</span>
-              <input type="text" name="name" th:value="${name}" class="form-control form-control-sm w-50 d-block mb-4 mr-4">
-              <span class="mb-4">userId</span>
-              <input type="text" name="userId" th:value="*{userId}" class="form-control form-control-sm w-50 d-block mb-4 mr-4">
+              <!-- 値のテスト -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">値のテスト</h6>
+                </div>
+                <div class="card-body">
+		          <!-- テストフォーム -->
+		          <div class="">
+		            <form  action="/admin/sec" method="post" name="TEST1" class="d-sm-flex align-items-center justify-content-between">
+		              <span class="mb-2">tweet</span>
+		              <input type="text" name="tweet" th:value="*{tweet}" class="form-control form-control-sm w-50 d-block mb-2 mr-4">
+		              <a href="javascript:TEST1.submit()" class="d-sm-inline-block btn btn-sm btn-danger font-weight-bolder align-text-top mb-2 pr-5 pl-5">
+		              	Tweet
+		           	  </a>
+		            </form>
+		          </div>
+		          <div class="d-sm-flex align-items-center mb-2">
+		            <span class="mb-4">出力：&nbsp;</span>
+		            <span class="mb-4" th:text="${tweet}"></span>
+		          </div>
 
-              <a href="javascript:TEST2.submit()" class="d-sm-inline-block btn btn-sm btn-danger text-light font-weight-bolder align-text-top mb-4 pr-5 pl-5">
-              	Register
-           	  </a>
-            </form>
-          </div>
-          <div class="d-sm-flex align-items-center mb-4">
-            <span class="mb-4">出力：&nbsp;</span>
-            <span class="mb-4" th:text="${NAME}"></span>
-          </div>
-          <!-- セッションクローズ -->
-          <div class="">
-            <form  action="/admin/close" method="post" name="sessionForm" class="d-sm-flex align-items-center mb-4">
-              <a href="javascript:sessionForm.submit()" class="d-sm-inline-block btn btn-sm btn-danger text-light font-weight-bolder align-text-top mb-4">&nbsp;&nbsp;&nbsp;sessionClose&nbsp;&nbsp;&nbsp;</a>
-            </form>
+		          <!-- セッションテスト -->
+		          <div class="mb-2">
+		            <form  action="/admin/session" method="post" th:object="${userInfo}" name="TEST3" class="">
+		              <div><span class="mb-4">userId</span></div>
+		              <div class="row">
+			              <div class="col-lg-7"><input type="text" name="userId" th:value="*{userId}" class="form-control mb-2" placeholder="Sessionに登録"></div>
+			              <div class="col-lg-5">
+			              <a href="javascript:TEST3.submit()" class="d-block btn btn-danger font-weight-bolder">
+			              	Register
+			           	  </a>
+			              </div>
+		           	  </div>
+		            </form>
+		          </div>
+		          <div class="d-sm-flex align-items-center mb-2">
+		            <span class="">Session内容：&nbsp;</span>
+		            <span class="" th:text="${userInfo.userId}"></span>
+		          </div>
+
+		          <!-- セッションクローズ -->
+		          <div class="mb-4">
+		            <form  action="/admin/close" method="post" name="sessionForm">
+						<div class="pt-2 pb-2 text-center"><span>セッション破棄</span></div>
+						<div class="">
+						<a class="btn btn-warning btn-block font-weight-bolder" href="javascript:sessionForm.submit()" >&nbsp;&nbsp;&nbsp;sessionClose&nbsp;&nbsp;&nbsp;</a>
+						</div>
+		            </form>
+		          </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Content Row -->

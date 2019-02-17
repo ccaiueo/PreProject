@@ -49,7 +49,6 @@ public class AdminController {
      */
     @RequestMapping(value= DIR + "/dashboard", method=RequestMethod.GET)
     public String dashboard(Model model) {
-
     	// メニュー用
     	model.addAttribute("dashboard", "active");
         return "index";
@@ -63,9 +62,11 @@ public class AdminController {
      */
     @RequestMapping(value="admin/sec", method=RequestMethod.POST)
     public String sec(@ModelAttribute ("tweet2") String tweet2, @ModelAttribute ("tweet") String tweet, @ModelAttribute("userInfo") UserInfo userInfo, Model model) {
-
+    	// メニュー用
+    	model.addAttribute("dashboard", "active");
+    	// JSPからわたってきた値
         model.addAttribute("tweet", tweet);
-        // sessionに設定
+        // sessionから取得した値
         model.addAttribute("userInfo", userInfo);
 
         System.out.println("SEC");
@@ -73,7 +74,8 @@ public class AdminController {
     }
 
     /**
-     * Register押下
+     * Register押下.
+     * セッションの設定
      *
      * @param name
      * @param userInfo
@@ -120,8 +122,6 @@ public class AdminController {
     @RequestMapping(value="admin/create/ticket", method=RequestMethod.POST)
     public String create(Model model) {
     	// メニュー用
-
-
     	model.addAttribute("showCategory", "show");
     	model.addAttribute("activeCreate", "active");
     	model.addAttribute("activeTiclet", "active");
