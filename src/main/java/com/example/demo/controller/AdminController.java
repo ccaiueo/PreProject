@@ -121,6 +121,9 @@ public class AdminController {
 
     @RequestMapping(value="admin/create/ticket", method=RequestMethod.POST)
     public String create(Model model) {
+
+    	model.addAttribute("ticketInfoList", service.getTicketInfo());
+
     	// メニュー用
     	model.addAttribute("showCategory", "show");
     	model.addAttribute("activeCreate", "active");
