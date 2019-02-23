@@ -9,14 +9,19 @@
 		<div class="text-center p-3">
 		<div>
 			<h2 class="ft-mono" id="hoge1">Bond Registration</h2>
-			
+
 			<a href="http://www.tohoho-web.com/ex/react.html">React入門</a>
 			<span class="mb-4" th:text="${aiueo}"></span>
-			
+
+			<!-- Fontawesomeを利用したロードアニメ -->
+			<i class="fa fa-spinner fa-spin text-secondary" style="font-size: 80px;"></i>
+			<i class="fa fa-spinner fa-pulse fa-3x fa-fw" style="font-size: 80px;"></i>
+
+			<!-- JQuery-ui利用 ドラッグできる要素 -->
 		    <div id="div1" class="border w-50 bg-danger p-2 m-auto font-weight-bold">
 		      Draggable
 		    </div>
-			
+
 			<form class="m-3 p-4" th:action="@{/confirm}" th:object="${bondInfoBean}" method="post">
 
 				<span th:if="${#fields.hasErrors('all')}" class="text-danger" th:errors="*{bondNm}">Error</span>

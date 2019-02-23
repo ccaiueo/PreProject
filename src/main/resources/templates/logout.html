@@ -27,8 +27,17 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
-          <p th:text="'「' + ${userInfo.userId} + '」 と 「' + ${userInfo.userNm} + '」がセッションに登録されました。'"></p>
+          <h1 class="h3 mb-4 text-gray-800">Logout</h1>
+          <p>ログアウトしました～</p>
+
+          <!-- セッションクローズ -->
+          <div class="mb-4">
+            <form  action="/admin/dashboard" method="get" name="sessionForm">
+				<div class="">
+					<a class="btn btn-warning btn-block font-weight-bolder w-50" href="javascript:sessionForm.submit()" >&nbsp;&nbsp;&nbsp;BACK&nbsp;&nbsp;&nbsp;</a>
+				</div>
+            </form>
+          </div>
 
         </div>
         <!-- /.container-fluid -->

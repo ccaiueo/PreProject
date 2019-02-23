@@ -44,7 +44,6 @@
                 </div>
                 <div class="card-body">
                   <small>
-                  <p class="m-0"><B>02/18</B><br>新しく作ったDBのDDLとか→<a target="_blank" rel="nofollow" href="https://writening.net/page?CeP35d">SQL</a></p>
                   <p class="m-0"><B>02/17</B><br>Mybatisの設定ファイル読み込み記述が抜けていました。application.properties最後の行以降へ下記の追記をお願いします。<br><span class="text-danger"># Mybatis Setting<br>mybatis.config-location=classpath:/mybatis-config.xml</span></p>
                   </small>
                   <div class="text-center mt-4">
@@ -66,8 +65,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 mb-4">
 
+            <div class="col-lg-6 mb-4">
               <!-- 値のテスト -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -92,20 +91,24 @@
 		          <!-- セッションテスト -->
 		          <div class="mb-2">
 		            <form  action="/admin/session" method="post" th:object="${userInfo}" name="TEST3" class="">
-		              <div><span class="mb-4">userId</span></div>
+		              <div><span class="mb-4">Sesssionテスト</span></div>
 		              <div class="row">
-			              <div class="col-lg-7"><input type="text" name="userId" th:value="*{userId}" class="form-control mb-2" placeholder="Sessionに登録"></div>
-			              <div class="col-lg-5">
-			              <a href="javascript:TEST3.submit()" class="d-block btn btn-danger font-weight-bolder">
-			              	Register
-			           	  </a>
+			              <div class="col-lg-4"><input type="text" name="userId" th:value="*{userId}" class="form-control mb-2" placeholder="userId"></div>
+			              <div class="col-lg-4"><input type="text" name="userNm" th:value="*{userNm}" class="form-control mb-2" placeholder="userNm"></div>
+			              <div class="col-lg-4">
+				              <a href="javascript:TEST3.submit()" class="d-block btn btn-danger font-weight-bolder">
+				              	Register
+				           	  </a>
 			              </div>
 		           	  </div>
 		            </form>
 		          </div>
-		          <div class="d-sm-flex align-items-center mb-2">
-		            <span class="">Session内容：&nbsp;</span>
-		            <span class="" th:text="${userInfo.userId}"></span>
+		          <div class="align-items-center mb-2"><!-- d-sm-flex で一列に -->
+		            <h5>Session登録内容</h5>
+		            <div><span>userId: </span><span th:text="${userInfo.userId} ? ${userInfo.userId} : '未登録です'"></span></div>
+		            <div><span>userNm: </span><span th:text="${userInfo.userNm}"></span></div>
+		            <!-- 文字列を連結するとNULL表示される -->
+		            <div><span class="" th:text="'(TEST表示)userNm: ' + ${userInfo.userNm}"></span></div>
 		          </div>
 
 		          <!-- セッションクローズ -->
@@ -117,9 +120,11 @@
 						</div>
 		            </form>
 		          </div>
+
                 </div>
               </div>
             </div>
+
           </div>
 
           <!-- Content Row -->

@@ -27,6 +27,16 @@ public class AdminController {
 	@Autowired
 	private DBService service;
 
+	/** 遷移先URL. */
+	class PAGE {
+		/** index画面URL */
+		public static final String INDEX = "index";
+		/** session登録完了画面URL */
+		public static final String SESSION_REGISTERD = "blank";
+		/** logout画面URL */
+		public static final String LOGOUT = "logout";
+	}
+
     /**
      *  <b>セッション処理用のメソッド.</b><br>
      * @param userInfo ユーザー情報
@@ -45,49 +55,48 @@ public class AdminController {
      */
     @RequestMapping(value="admin/dashboard", method=RequestMethod.GET)
     public String dashboard(Model model) {
+
     	// メニュー用
     	model.addAttribute("dashboard", "active");
-        return "index";
+        return PAGE.INDEX;
     }
 
     /**
      * <b>Tweetボタン押下.</b><br>
      * @param tweet テスト値
-     * @param userInfo セッション用に取得した値
      * @param model viewへ渡すオブジェクト設定クラス
      * @return 遷移先URL
      */
     @RequestMapping(value="admin/sec", method=RequestMethod.POST)
-    public String sec(@ModelAttribute ("tweet") String tweet, @ModelAttribute("userInfo") UserInfo userInfo, Model model) {
+    public String sec(@ModelAttribute ("tweet") String tweet, Model model) {
     	// メニューCSS用
     	model.addAttribute("dashboard", "active");
     	// JSPからわたってきた値
         model.addAttribute("tweet", tweet);
-        // sessionから取得した値
-        model.addAttribute("userInfo", userInfo);
 
         System.out.println("SEC");
-        return "index";
+        return PAGE.INDEX;
     }
 
     /**
      * <b>Register押下.</b><br>
-     * セッション設定を行い、blank画面へ遷移する。
+     * セッション設定を行い、セッション登録完了画面へ遷移する。
      * @param name 画面から受け取った値
      * @param userInfo セッション格納値
      * @param model viewへ渡すオブジェクト設定クラス
      * @return 遷移先URL
      */
     @RequestMapping(value="admin/session", method=RequestMethod.POST)
-    public String session(@ModelAttribute ("name") String name, @ModelAttribute("userInfo") UserInfo userInfo, Model model) {
+    public String session(@ModelAttribute("userInfo") UserInfo userInfo, Model model) {
 
     	System.out.println("SESSION");
 
-    	// 	sessionに格納
-    	setUserInfo(userInfo);
+    	// sessionに格納
+    	// sessionはmodelへaddしなくても取れる？
+    	// setもいらない？
+//    	setUserInfo(userInfo);
 
-    	model.addAttribute("name", name);
-        return "blank";
+        return PAGE.SESSION_REGISTERD;
     }
 
     /**
@@ -99,7 +108,7 @@ public class AdminController {
     @RequestMapping(value="admin/close", method=RequestMethod.POST)
     public String sessionClose(SessionStatus sessionStatus) {
         sessionStatus.setComplete();
-        return "index";
+        return PAGE.LOGOUT;
 
     }
 

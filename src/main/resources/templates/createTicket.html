@@ -32,6 +32,36 @@
 
 
           <!-- ここから中身 -->
+            <div class="mb-4">
+              <!-- 値のテスト -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">チケット作成</h6>
+                </div>
+                <div class="card-body">
+
+		          <!-- セッションテスト -->
+		          <div class="mb-2">
+		            <form  action="/admin/session" method="post" th:object="${userInfo}" name="TEST3" class="">
+		              <div><span class="mb-4">userId</span></div>
+		              <div class="row">
+			              <div class="col-lg-7"><input type="text" name="userId" th:value="*{userId}" class="form-control mb-2" placeholder="Sessionに登録"></div>
+			              <div class="col-lg-5">
+			              <a href="javascript:TEST3.submit()" class="d-block btn btn-danger font-weight-bolder">
+			              	Register
+			           	  </a>
+			              </div>
+		           	  </div>
+		            </form>
+		          </div>
+		          <div class="d-sm-flex align-items-center mb-2">
+		            <span class="">Session内容：&nbsp;</span>
+		            <span class="" th:text="${userInfo.userId}"></span>
+		          </div>
+
+                </div>
+              </div>
+            </div>
 
           <!-- Content Row -->
           <div class="row">
