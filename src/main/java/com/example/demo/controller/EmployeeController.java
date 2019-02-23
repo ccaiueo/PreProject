@@ -11,20 +11,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.entity.BondInfo;
-import com.example.demo.repository.EmployeeRepository;
 import com.example.demo.service.DBService;
 
 @Controller("/registration")
 public class EmployeeController {
 
+	/** 遷移先URL. */
 	class PAGE_TITLE {
+		/** 債権銘柄登録入力画面URL */
 		public static final String BOND_REGISTRATION = "Bond Registration";
+		/** 債権銘柄登録確認画面URL */
 		public static final String BOND_REGISTRATION_CONFIRM = "Bond Registration Confirm";
+		/** 債権銘柄登録完了画面URL */
 		public static final String BOND_REGISTRATION_COMPLETED = "Bond Registration Completed";
 	}
-
-	@Autowired
-	EmployeeRepository repository;
 
 	@Autowired
 	DBService service;

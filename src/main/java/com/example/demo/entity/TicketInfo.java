@@ -2,7 +2,6 @@ package com.example.demo.entity;
 
 /**
  * TICKET_INFOテーブルのデータ格納Entity.
- *
  * @author eharada
  *
  */
