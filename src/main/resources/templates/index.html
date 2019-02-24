@@ -34,6 +34,9 @@
             </a>
           </div>
 
+          <!-- プロパティ値取得 -->
+          <h1 th:text="#{viewItem}"></h1>
+
           <!-- Content Row -->
           <div class="row">
             <div class="col-lg-6 mb-4">
@@ -44,7 +47,19 @@
                 </div>
                 <div class="card-body">
                   <small>
-                  <p class="m-0"><B>02/17</B><br>Mybatisの設定ファイル読み込み記述が抜けていました。application.properties最後の行以降へ下記の追記をお願いします。<br><span class="text-danger"># Mybatis Setting<br>mybatis.config-location=classpath:/mybatis-config.xml</span></p>
+	                  <p class="m-0"><B>02/24</B>
+		                  Mybatis追記<br><span class="text-danger">
+		                  # ScreenItemの設定<br>
+		                  spring.messages.basename=screenItem<br>
+		                  spring.messages.cache-duration=-1<br>
+		                  spring.messages.encoding=UTF-8<br><br>
+	                  </span></p>
+	                  <p class="m-0"><B>02/17</B><br>
+		                  Mybatisの設定ファイル読み込み記述application.properties最後の行以降へ下記の追記をお願いします。<br>
+		                  <span class="text-danger">
+		                  # Mybatis Setting<br>
+		                  mybatis.config-location=classpath:/mybatis-config.xml
+	                  </span></p>
                   </small>
                   <div class="text-center mt-4">
 					<span>疎通確認ができているところ</span>

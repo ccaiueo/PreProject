@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.example.demo.ProjectApplication;
 import com.example.demo.formbean.UserInfo;
 import com.example.demo.service.DBService;
 
@@ -56,6 +57,9 @@ public class AdminController {
     @RequestMapping(value="admin/dashboard", method=RequestMethod.GET)
     public String dashboard(Model model) {
 
+    	// プロパティファイル出力テスト
+    	System.out.println(ProjectApplication.propertiesMap.toString());
+
     	// メニュー用
     	model.addAttribute("dashboard", "active");
         return PAGE.INDEX;
@@ -69,6 +73,8 @@ public class AdminController {
      */
     @RequestMapping(value="admin/sec", method=RequestMethod.POST)
     public String sec(@ModelAttribute ("tweet") String tweet, Model model) {
+
+
     	// メニューCSS用
     	model.addAttribute("dashboard", "active");
     	// JSPからわたってきた値
