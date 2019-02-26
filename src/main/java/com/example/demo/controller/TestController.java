@@ -14,7 +14,6 @@ public class TestController {
 	@Autowired
 	 DBMapper mapper;
 
-
 	@RequestMapping("/test")
 	public ModelAndView show(ModelAndView mav) {
 
@@ -34,21 +33,20 @@ public class TestController {
 
 	    // test
 	    System.out.println("idの値を持ってきたい : " + form.getId());
-	    System.out.println("Nameの値を持ってきたい : " + form.getName());
-	    System.out.println("Emailの値を持ってきたい : " + form.getEmail());
+	    //System.out.println("Nameの値を持ってきたい : " + form.getName());
+	    //System.out.println("Emailの値を持ってきたい : " + form.getEmail());
 		//////////////////////////////////////////////////////////////////////
 
-	    /*  */
 	    // まずxmlでSQL発行してる方
-	    EmployeeBean bean = mapper.selectInfo();
-        System.out.println(bean);
+	    //EmployeeBean bean = mapper.selectInfo();
+	    //System.out.println(bean);
 
         // 入れ物作成
-	     EmployeeBean bean1 = new EmployeeBean();
+	     //EmployeeBean bean1 = new EmployeeBean();
 	     // 入れ物にDBのデータを入れる
-	     bean1 = mapper.selectInfo();
+	     //bean1 = mapper.selectInfo();
 	     // 表示
-	     System.out.println(bean1.toString());
+	     //System.out.println(bean1.toString());
 
 	     return mav;
 	}

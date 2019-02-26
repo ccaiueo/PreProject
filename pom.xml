@@ -61,6 +61,16 @@
 			<scope>runtime</scope>
 		</dependency>
 
+		<!-- Oracle用 ※バージョンの記述は接続できるOracleに合わせているだけ、何でもいい -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc7</artifactId>
+			<version>12.1.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/ojdbc7.jar</systemPath>
+		</dependency>
+
+
 		<!-- javax用 -->
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>

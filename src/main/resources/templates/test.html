@@ -11,8 +11,8 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-    <!-- Sidebar -->
-	<ul th:replace="common/slidebar :: slidebar"></ul>
+    <!-- Sidebar これ表示させるとページエラーになる -->
+	<!-- <ul th:replace="common/slidebar :: slidebar"></ul> -->
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -51,6 +51,8 @@
                   <h6 class="m-0 font-weight-bold text-primary">メモ</h6>
                 </div>
                 <div class="card-body">
+                  <h6 class="m-0 font-weight-bold text-secondery">リンク</h6>
+                  <a href=http://localhost:8080/admin/dashboard>・ダッシュボード</a>
                   <h6 class="m-0 font-weight-bold text-secondery">やろうと思ってること</h6>
                   <p class="m-0">・Bootstrapを使ってみる。</p>
                   <p class="m-0">・DBから値持ってきて表示させてみる。</p>
