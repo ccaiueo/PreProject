@@ -61,7 +61,7 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- Oracle用 ※バージョンの記述は接続できるOracleに合わせているだけ、何でもいい -->
+		<!-- Oracle11g ～ 12c用 ※バージョンの記述は接続できるOracleに合わせているだけ、何でもいい -->
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc7</artifactId>
@@ -70,6 +70,14 @@
 			<systemPath>${basedir}/lib/ojdbc7.jar</systemPath>
 		</dependency>
 
+		<!-- Oracle18c用 -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>18.4.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/ojdbc8.jar</systemPath>
+		</dependency>
 
 		<!-- javax用 -->
 		<dependency>
