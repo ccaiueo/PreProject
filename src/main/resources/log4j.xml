@@ -22,4 +22,4 @@
 			<appender-ref ref="stdout" />
 	</category>
 
-</log4j:configuration>
+</log4j:configuration> 
