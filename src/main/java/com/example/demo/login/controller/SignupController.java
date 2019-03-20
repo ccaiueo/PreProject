@@ -5,11 +5,29 @@ import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import com.example.demo.formbean.UserInfo;
+import com.example.demo.login.domain.model.SignupForm;
 
 @Controller
+@SessionAttributes("userInfo")
 public class SignupController {
+
+
+    /**
+     *  <b>セッション処理用のメソッド.</b><br>
+     * @param userInfo ユーザー情報
+     * @return ユーザー情報
+     */
+    @ModelAttribute("userInfo")
+    public UserInfo setUserInfo(UserInfo userInfo){
+        return userInfo;
+    }
 
     //ラジオボタン用変数
     private Map<String, String> radioSex;
@@ -22,8 +40,8 @@ public class SignupController {
         Map<String, String> radio = new LinkedHashMap<>();
 
         // 男性、女性をMapに格納
-        radio.put("男", "true");
-        radio.put("女", "false");
+        radio.put("男", "false");
+        radio.put("女", "true");
 
         return radio;
     }
@@ -32,7 +50,7 @@ public class SignupController {
      * ユーザー登録画面のGETメソッド用処理.
      */
     @GetMapping("/signup")
-    public String getSignUp(Model model) {
+    public String getSignUp(@ModelAttribute SignupForm form, Model model) {
 
         // ラジオボタンの初期化メソッド呼び出し
         radioSex = initRadioSex();
@@ -48,9 +66,20 @@ public class SignupController {
      * ユーザー登録画面のPOSTメソッド用処理.
      */
     @PostMapping("/signup")
-    public String postSignUp(Model model) {
+    public String postSignUp(@ModelAttribute SignupForm form, BindingResult bindingResult, Model model) {
 
-        // login.htmlにリダイレクト
+    	if (bindingResult.hasErrors()) {
+
+    		// GETリクエスト用のメソッドを呼び出して、ユーザー登録画面に戻る
+    		return getSignUp(form, model);
+
+    	}
+
+    	// formの中身をコンソールに出す
+    	System.out.println(form);
+
+
+        // test.htmlにリダイレクト
         return "redirect:/test";
     }
 }

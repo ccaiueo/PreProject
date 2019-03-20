@@ -3,7 +3,7 @@
 
 <head>
 	<meta th:replace="common/commonReading">
-	<title>Dashboard</title>
+	<title>Testページ</title>
 </head>
 
 <body id="page-top">
@@ -11,8 +11,8 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-    <!-- Sidebar これ表示させるとページエラーになる -->
-	<!-- <ul th:replace="common/slidebar :: slidebar"></ul> -->
+    <!-- Sidebar -->
+	<ul th:replace="common/slidebar :: slidebar"></ul>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -30,13 +30,14 @@
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">テストページ</h1>
 
+
             <!-- コメントアウト
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
             	<i class="fas fa-download fa-sm text-white-50"></i> Generate Report
             </a>
-             -->
-          </div>
+			 -->
 
+          </div>
 
 		<!--------------------------------- ここからメモ --------------------------------->
 
@@ -54,19 +55,15 @@
                   <h6 class="m-0 font-weight-bold text-secondery">リンク</h6>
                   <a href=http://localhost:8080/admin/dashboard>・ダッシュボード</a>
                   <h6 class="m-0 font-weight-bold text-secondery">やろうと思ってること</h6>
-                  <p class="m-0">・Bootstrapを使ってみる。</p>
-                  <p class="m-0">・DBから値持ってきて表示させてみる。</p>
                   <p class="m-0">・ログインフォーム作りたい</p>
                   <p class="m-0">・ファイルを格納して取り出すまでやりたい</p>
                   <p class="m-0">・画像を格納して取り出すまでやりたい</p>
 
                   <h6 class="m-0 mt-2 font-weight-bold text-secondery">変更したとこ</h6>
-                  <p class="m-0">・Bootstrap使ってみた！</p>
-                  <p class="m-0">・DBから値持ってこれた！課題：2行目以降を取りたい、、、</p>
-                  <p class="m-0">・jqueryで遊ぶところ <a target="_blank" rel="nofollow" href="https://jqueryui.com/draggable/">参考：ドラッグするやつ</a></p>
+                  <p class="m-0">・DBから値持ってこれた！　→課題：2行目以降を取りたい、、、</p>
+                  <p class="m-0">・ユーザー新規登録ページ作成中　→課題：年齢に全角入れた場合とかのエラーメッセージが英語</p>
                 </div>
               </div>
-
             </div>
           </div>
 
@@ -136,7 +133,6 @@
 				</form>
 			</div>
 		</div>
-
 
 		<!-- ファイル格納用 -->
 		      <div class="row">

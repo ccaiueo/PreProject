@@ -54,6 +54,20 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- webjars:JQuery用 -->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>1.11.1</version>
+		</dependency>
+
+		<!-- webjars:Bootstrap用 -->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>3.3.7-1</version>
+		</dependency>
+
 		<!-- MySQL用 -->
 		<dependency>
 			<groupId>mysql</groupId>

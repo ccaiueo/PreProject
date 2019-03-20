@@ -1,82 +1,154 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8"></meta>
+	<meta th:replace="common/commonReading">
+	<meta charset="UTF-8"></meta>
 
-    <!-- Bootstrapの設定 -->
-    <link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" rel="stylesheet"></link>
-    <script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
-    <script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
-
-    <title>SignUp</title>
+	<title>ユーザ登録</title>
 </head>
-<body>
-    <div class="col-sm-5">
-        <div class="page-header">
-            <h1>ユーザー登録画面</h1>
-        </div>
-        <form method="post" th:action="@{/signup}">
-            <table class="table table-bordered table-hover">
-                <!-- ユーザーIDの入力エリア -->
-                <tr>
-                    <th class="active col-sm-3">ユーザID</th>
-                    <td>
-                        <div class="form-group">
-                            <input type="text" class="form-control" />
-                        </div>
-                    </td>
-                </tr>
-                <!-- パスワードの入力エリア -->
-                <tr>
-                    <th class="active">パスワード</th>
-                    <td>
-                        <div class="form-group">
-                            <input type="text" class="form-control" />
-                        </div>
-                    </td>
-                </tr>
-                <!-- ユーザー名の入力エリア -->
-                <tr>
-                    <th class="active">ユーザー名</th>
-                    <td>
-                        <div class="form-group">
-                            <input type="text" class="form-control" />
-                        </div>
-                    </td>
-                </tr>
-                <!-- 誕生日の入力エリア -->
-                <tr>
-                    <th class="active">誕生日</th>
-                    <td>
-                        <div class="form-group">
-                            <input type="text" class="form-control" />
-                        </div>
-                    </td>
-                </tr>
-                <!-- 年齢の入力エリア -->
-                <tr>
-                    <th class="active">年齢</th>
-                    <td>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="yyyy/MM/dd" />
-                        </div>
-                    </td>
-                </tr>
-                <!-- 性別ステータスの入力エリア -->
-                <tr>
-                    <th class="active">性別</th>
-                    <td>
-                        <div class="form-group">
-                            <div th:each="item : ${radioSex}">
-                                <input type="radio" name="radioSex" th:text="${item.key}" th:value="${item.value}"></input>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+	<ul th:replace="common/slidebar :: slidebar"></ul>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+		<nav th:replace="common/topbar"></nav>
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">ユーザ登録</h1>
+
+            <!-- コメントアウト
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            	<i class="fas fa-download fa-sm text-white-50"></i> Generate Report
+            </a>
+			 -->
+          </div>
+
+		<!--------------------------------- ここから砂場 --------------------------------->
+
+        <div class="col-sm-6">
+            <form method="post" th:action="@{/signup}" th:object="${signupForm}">
+                <table class="table table-bordered">
+                    <!-- ユーザーIDの入力エリア -->
+                    <tr>
+                        <th class="active col-sm-0">ユーザID</th>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" th:field="*{userId}" />
                             </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            <!-- ユーザー登録ボタン -->
-            <button class="btn btn-primary" type="submit">ユーザー登録</button>
-        </form>
+                        </td>
+                    </tr>
+                    <!-- ユーザー名の入力エリア -->
+                    <tr>
+                        <th class="active">ユーザー名</th>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" th:field="*{userName}" />
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- パスワードの入力エリア -->
+                    <tr>
+                        <th class="active">パスワード</th>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" th:field="*{password}" />
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- 誕生日の入力エリア -->
+                    <tr>
+                        <th class="active">誕生日</th>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="yyyy/MM/dd" th:field="*{birthday}" />
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- 年齢の入力エリア -->
+                    <tr>
+                        <th class="active">年齢</th>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" th:field="*{age}" />
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- 性別ステータスの入力エリア -->
+                    <tr>
+                        <th class="active">性別</th>
+                        <td>
+                            <div class="form-group">
+                                <div th:each="item : ${radioSex}">
+                                    <input type="radio" name="radioSex" th:text="${item.key}" th:value="${item.value}" th:field="*{sex}" ></input>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- エラーメッセージの一覧表示 -->
+                <ul>
+                    <li th:each="error : ${#fields.detailedErrors()}">
+                        <span th:text="${error.message}">Error message</span>
+                    </li>
+                </ul>
+                <!-- ユーザー登録ボタン -->
+                <button class="btn btn-primary" type="submit">ユーザー登録</button>
+            </form>
+        </div>
+
+		<!--------------------------------- ここまで砂場 --------------------------------->
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
     </div>
+	<!-- End of Content Wrapper -->
+
+    </div>
+	<!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div th:replace="common/logoutModal"></div>
+
+  <!-- JavaScript-->
+  <script th:replace="common/commonJs"></script>
+
 </body>
+
 </html>
