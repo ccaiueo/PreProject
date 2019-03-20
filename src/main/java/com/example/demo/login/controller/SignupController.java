@@ -6,18 +6,19 @@ import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.example.demo.formbean.UserInfo;
+import com.example.demo.login.domain.model.GroupOrder;
 import com.example.demo.login.domain.model.SignupForm;
 
 @Controller
 @SessionAttributes("userInfo")
 public class SignupController {
-
 
     /**
      *  <b>セッション処理用のメソッド.</b><br>
@@ -40,8 +41,8 @@ public class SignupController {
         Map<String, String> radio = new LinkedHashMap<>();
 
         // 男性、女性をMapに格納
-        radio.put("男", "false");
-        radio.put("女", "true");
+        radio.put("男性", "false");
+        radio.put("女性", "true");
 
         return radio;
     }
@@ -66,20 +67,22 @@ public class SignupController {
      * ユーザー登録画面のPOSTメソッド用処理.
      */
     @PostMapping("/signup")
-    public String postSignUp(@ModelAttribute SignupForm form, BindingResult bindingResult, Model model) {
+    public String postSignUp(@ModelAttribute @Validated(GroupOrder.class) SignupForm form,
+            BindingResult bindingResult,
+            Model model) {
 
-    	if (bindingResult.hasErrors()) {
+        // 入力チェックに引っかかった場合、ユーザー登録画面に戻る
+        if (bindingResult.hasErrors()) {
 
-    		// GETリクエスト用のメソッドを呼び出して、ユーザー登録画面に戻る
-    		return getSignUp(form, model);
+            // GETリクエスト用のメソッドを呼び出して、ユーザー登録画面に戻ります
+            return getSignUp(form, model);
 
-    	}
+        }
 
-    	// formの中身をコンソールに出す
-    	System.out.println(form);
+        // formの中身をコンソールに出して確認します
+        System.out.println(form);
 
-
-        // test.htmlにリダイレクト
-        return "redirect:/test";
+        // login.htmlにリダイレクト
+        return "redirect:/login";
     }
 }
