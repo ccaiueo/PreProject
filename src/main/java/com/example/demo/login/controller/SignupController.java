@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.example.demo.formbean.UserInfo;
-import com.example.demo.login.domain.model.GroupOrder;
 import com.example.demo.login.domain.model.SignupForm;
 
 @Controller
@@ -67,7 +66,11 @@ public class SignupController {
      * ユーザー登録画面のPOSTメソッド用処理.
      */
     @PostMapping("/signup")
-    public String postSignUp(@ModelAttribute @Validated(GroupOrder.class) SignupForm form,
+    // バリデーションチェック順番あり版
+    //public String postSignUp(@ModelAttribute @Validated(GroupOrder.class) SignupForm form,
+
+    // バリデーションチェック順番なし版
+    public String postSignUp(@ModelAttribute @Validated SignupForm form,
             BindingResult bindingResult,
             Model model) {
 
@@ -83,6 +86,6 @@ public class SignupController {
         System.out.println(form);
 
         // login.htmlにリダイレクト
-        return "redirect:/login";
+        return "redirect:/test";
     }
 }
