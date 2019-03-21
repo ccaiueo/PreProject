@@ -122,6 +122,12 @@
 			<systemPath>${basedir}/lib/ojdbc8.jar</systemPath>
 		</dependency>
 
+		<!-- H2データベース用 -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 		<!--
 		########################################################################
 		 -->

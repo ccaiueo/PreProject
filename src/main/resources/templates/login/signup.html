@@ -123,6 +123,26 @@
                 <!-- ユーザー登録ボタン -->
                 <button class="btn btn-primary" type="submit">ユーザー登録</button>
             </form>
+
+			</p>
+			// 注：ユーザ登録をテストする前にはOracle側でテーブル作っておく
+			</p>
+
+			↓ 作成用SQL ↓
+			</p>
+	        CREATE TABLE m_user (
+
+				user_id VARCHAR2(50),
+				password VARCHAR2(100),
+				user_name VARCHAR2(50),
+				birthday DATE,
+				age INT,
+				sex VARCHAR2(50),
+				role VARCHAR2(50)
+
+			);
+			</p>
+
         </div>
 
 		<!--------------------------------- ここまで砂場 --------------------------------->

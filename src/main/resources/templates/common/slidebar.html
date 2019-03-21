@@ -41,6 +41,44 @@
         </div>
       </li>
 
+	<!--------------------------------------------------------------------
+		高橋のテストページ
+
+    	memo：以下の2つを書き換えると量産できる
+    			・data-target="#collapseTest"
+				・div id="collapseTest"
+
+     -------------------------------------------------------------------->
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        yapo's page
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTest" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Pages</span>
+        </a>
+        <div id="collapseTest" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">作ったページ:</h6>
+
+            <!-- /adminではないので一つ上の階層を指定 -->
+            <a class="collapse-item" href="../test">テストページ</a>
+            <a class="collapse-item" href="../signup">ユーザ新規登録</a>
+            <a class="collapse-item" href="../home">DB動作確認用</a>
+          </div>
+        </div>
+      </li>
+
+	<!------------------------------ ここまで ----------------------------->
+
+
       <!-- Divider -->
       <hr class="sidebar-divider">
 
@@ -48,8 +86,6 @@
       <div class="sidebar-heading">
         Interface
       </div>
-
-
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li th:class="'nav-item ' + ${components}">
