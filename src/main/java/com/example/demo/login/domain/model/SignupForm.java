@@ -16,7 +16,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import lombok.Data;
 
 @Data
-// バリデーションチェック(順番付けなし)
+// バリデーション(順番付けなし)
 public class SignupForm {
 
     //必須入力、メールアドレス形式
@@ -50,7 +50,7 @@ public class SignupForm {
 }
 
 /*
-// バリデーションチェック(順番付けなし)
+// バリデーション(順番付けあり)
 public class SignupForm {
 
     //必須入力、メールアドレス形式

@@ -66,10 +66,10 @@ public class SignupController {
      * ユーザー登録画面のPOSTメソッド用処理.
      */
     @PostMapping("/signup")
-    // バリデーションチェック順番あり版
+    // バリデーション(順番あり版)
     //public String postSignUp(@ModelAttribute @Validated(GroupOrder.class) SignupForm form,
 
-    // バリデーションチェック順番なし版
+    // バリデーション(順番なし版)
     public String postSignUp(@ModelAttribute @Validated SignupForm form,
             BindingResult bindingResult,
             Model model) {

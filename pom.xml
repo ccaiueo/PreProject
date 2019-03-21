@@ -54,6 +54,12 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!--
+		########################################################################
+		【WebJars】
+			JavaScript や CSS などの依存関係をMaven（Gradle）で管理できるようにした仕組み。
+		########################################################################
+		 -->
 		<!-- webjars:JQuery用 -->
 		<dependency>
 			<groupId>org.webjars</groupId>
@@ -68,6 +74,29 @@
 			<version>3.3.7-1</version>
 		</dependency>
 
+		<!--
+		########################################################################
+		【AOP】Aspect Oriented Programming
+			各クラスで共通する処理を抜き出してまとめて管理すること
+			今回はログ出力のため記載
+		########################################################################
+		 -->
+		<!-- Spring AOP-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+		</dependency>
+		<!-- AspectJ -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+		</dependency>
+
+		<!--
+		########################################################################
+			データベース接続用の記載
+		########################################################################
+		 -->
 		<!-- MySQL用 -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -92,6 +121,10 @@
 			<scope>system</scope>
 			<systemPath>${basedir}/lib/ojdbc8.jar</systemPath>
 		</dependency>
+
+		<!--
+		########################################################################
+		 -->
 
 		<!-- javax用 -->
 		<dependency>
