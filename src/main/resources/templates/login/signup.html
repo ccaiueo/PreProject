@@ -13,166 +13,191 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-    <!-- Sidebar -->
+	<!-- Sidebar -->
 	<ul th:replace="common/slidebar :: slidebar"></ul>
 
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+	<!-- Content Wrapper -->
+	<div id="content-wrapper" class="d-flex flex-column">
 
-      <!-- Main Content -->
-      <div id="content">
+	  <!-- Main Content -->
+	  <div id="content">
 
-        <!-- Topbar -->
+		<!-- Topbar -->
 		<nav th:replace="common/topbar"></nav>
 
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+		<!-- Begin Page Content -->
+		<div class="container-fluid">
 
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">ユーザ登録</h1>
+		  <!-- Page Heading -->
+		  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+			<h1 class="h3 mb-0 text-gray-800">ユーザ登録</h1>
 
-            <!-- コメントアウト
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-            	<i class="fas fa-download fa-sm text-white-50"></i> Generate Report
-            </a>
+			<!-- コメントアウト
+			<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+				<i class="fas fa-download fa-sm text-white-50"></i> Generate Report
+			</a>
 			 -->
-          </div>
+		  </div>
 
-		<!--------------------------------- ここから砂場 --------------------------------->
+			<!--------------------------------- ここから砂場 --------------------------------->
 
-        <div class="col-sm-8">
+			<div class="col-sm-8">
 
-        	<!-- フォーム開始 -->
-            <form method="post" th:action="@{/signup}" th:object="${signupForm}">
-                <table class="table table-bordered">
+				<!-- フォーム開始 -->
+				<form method="post" th:action="@{/signup}" th:object="${signupForm}">
+					<table class="table table-bordered">
 
-                    <!-- ユーザーIDの入力 -->
-                    <tr>
-                        <th class="active col-sm-0">ユーザID</th>
-                        <td>
-		                    <!-- エラー用のCSS追加 -->
-                            <div class="form-group" th:classappend="${#fields.hasErrors('userId')} ? 'has-error'">
-                                <input type="text" class="form-control" th:field="*{userId}" />
-                            	<span class="text-danger" th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}">userId error</span>
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- ユーザー名の入力 -->
-                    <tr>
-                        <th class="active">ユーザー名</th>
-                        <td>
-							<div class="form-group" th:classappend="${#fields.hasErrors('userName')} ? 'has-error'">
-                                <input type="text" class="form-control" th:field="*{userName}" />
-                            <span class="text-danger" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">password error</span>
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- パスワードの入力 -->
-	                <tr>
-	                    <th class="active">パスワード</th>
-	                    <td>
-	                        <div class="form-group" th:classappend="${#fields.hasErrors('password')} ? 'has-error'">
-	                            <input type="text" class="form-control" th:field="*{password}" />
-	                            <span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password error</span>
-	                        </div>
-	                    </td>
-	                </tr>
-                    <!-- 誕生日の入力 -->
-                    <tr>
-                        <th class="active">誕生日</th>
-                        <td>
-                        	<div class="form-group" th:classappend="${#fields.hasErrors('birthday')} ? 'has-error'">
-                                <input type="text" class="form-control" placeholder="yyyy/MM/dd" th:field="*{birthday}" />
-                            	<span class="text-danger" th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}">birthday error</span>
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- 年齢の入力 -->
-                    <tr>
-                        <th class="active">年齢</th>
-                        <td>
-	                        <div class="form-group" th:classappend="${#fields.hasErrors('age')} ? 'has-error'">
-	                            <input type="text" class="form-control" th:field="*{age}" />
-	                            <span class="text-danger" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">age error</span>
-	                        </div>
-                        </td>
-                    </tr>
-                    <!-- 性別ステータスの入力 -->
-                    <tr>
-                        <th class="active">性別</th>
-                        <td>
-                            <div class="form-group">
-                                <div th:each="item : ${radioSex}">
-                                    <input type="radio" name="radioSex" th:text="${item.key}" th:value="${item.value}" th:field="*{sex}" ></input>
-	                            </div>
-	                            <span class="text-danger" th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}">sex error</span>
-	                        </div>
-                        </td>
-                    </tr>
-                </table>
+						<!-- ユーザーIDの入力 -->
+						<tr>
+							<th class="active col-sm-0">ユーザID</th>
+							<td>
+								<!-- エラー用のCSS追加 -->
+								<div class="form-group" th:classappend="${#fields.hasErrors('userId')} ? 'has-error'">
+									<input type="text" class="form-control" th:field="*{userId}" />
+									<span class="text-danger" th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}">userId error</span>
+								</div>
+							</td>
+						</tr>
+						<!-- ユーザー名の入力 -->
+						<tr>
+							<th class="active">ユーザー名</th>
+							<td>
+								<div class="form-group" th:classappend="${#fields.hasErrors('userName')} ? 'has-error'">
+									<input type="text" class="form-control" th:field="*{userName}" />
+								<span class="text-danger" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">password error</span>
+								</div>
+							</td>
+						</tr>
+						<!-- パスワードの入力 -->
+						<tr>
+							<th class="active">パスワード</th>
+							<td>
+								<div class="form-group" th:classappend="${#fields.hasErrors('password')} ? 'has-error'">
+									<input type="text" class="form-control" th:field="*{password}" />
+									<span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password error</span>
+								</div>
+							</td>
+						</tr>
+						<!-- 誕生日の入力 -->
+						<tr>
+							<th class="active">誕生日</th>
+							<td>
+								<div class="form-group" th:classappend="${#fields.hasErrors('birthday')} ? 'has-error'">
+									<input type="text" class="form-control" placeholder="yyyy/MM/dd" th:field="*{birthday}" />
+									<span class="text-danger" th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}">birthday error</span>
+								</div>
+							</td>
+						</tr>
+						<!-- 年齢の入力 -->
+						<tr>
+							<th class="active">年齢</th>
+							<td>
+								<div class="form-group" th:classappend="${#fields.hasErrors('age')} ? 'has-error'">
+									<input type="text" class="form-control" th:field="*{age}" />
+									<span class="text-danger" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">age error</span>
+								</div>
+							</td>
+						</tr>
+						<!-- 性別ステータスの入力 -->
+						<tr>
+							<th class="active">性別</th>
+							<td>
+								<div class="form-group">
+									<div th:each="item : ${radioSex}">
+										<input type="radio" name="radioSex" th:text="${item.key}" th:value="${item.value}" th:field="*{sex}" ></input>
+									</div>
+									<span class="text-danger" th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}">sex error</span>
+								</div>
+							</td>
+						</tr>
+					</table>
 
-                <!-- エラーメッセージの一覧表示
-                <ul>
-                    <li th:each="error : ${#fields.detailedErrors()}">
-                        <span th:text="${error.message}">Error message</span>
-                    </li>
-                </ul>
-                 -->
+					<!-- エラーメッセージの一覧表示
+					<ul>
+						<li th:each="error : ${#fields.detailedErrors()}">
+							<span th:text="${error.message}">Error message</span>
+						</li>
+					</ul>
+					 -->
 
-                <!-- ユーザー登録ボタン -->
-                <button class="btn btn-primary" type="submit">ユーザー登録</button>
-            </form>
+					<!-- ユーザー登録ボタン -->
+					<button class="btn btn-primary" type="submit">ユーザー登録</button>
+				</form>
+				</p>
 
-			</p>
-			// 注：ユーザ登録をテストする前にはOracle側でテーブル作っておく
-			</p>
+				<!-- メモ欄 -->
 
-			↓ 作成用SQL ↓
-			</p>
-	        CREATE TABLE m_user (
+				<table class="table table-bordered">
+					<thead class="thead-light">
+						<tr>
+							<th>メモ</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								ユーザ登録をテストする前にはOracle側でテーブル作っておく。
+								</br>
+								Oracleはboolean型がないのでVARCHARにした。
+								</br>
+								※格納される値は false / true
+							</td>
+						</tr>
 
-				user_id VARCHAR2(50),
-				password VARCHAR2(100),
-				user_name VARCHAR2(50),
-				birthday DATE,
-				age INT,
-				sex VARCHAR2(50),
-				role VARCHAR2(50)
+					</tbody>
 
-			);
-			</p>
+					<thead class="thead-light">
+						<tr>
+							<th>テーブル作成用SQL</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								CREATE TABLE m_user (
+									user_id VARCHAR2(4000),
+									password VARCHAR2(100),
+									user_name VARCHAR2(50),
+									birthday DATE,
+									age INT,
+									sex VARCHAR2(4000),
+									role VARCHAR2(50)
+									);
+							</td>
+						</tr>
+					</tbody>
+				</table>
 
-        </div>
+			</div>
 
-		<!--------------------------------- ここまで砂場 --------------------------------->
+			<!--------------------------------- ここまで砂場 --------------------------------->
 
 
-        </div>
-        <!-- /.container-fluid -->
+		</div>
+		<!-- /.container-fluid -->
 
-      </div>
-      <!-- End of Main Content -->
+	  </div>
+	  <!-- End of Main Content -->
 
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
+	  <!-- Footer -->
+	  <footer class="sticky-footer bg-white">
+		<div class="container my-auto">
+		  <div class="copyright text-center my-auto">
+			<span>Copyright &copy; Your Website 2019</span>
+		  </div>
+		</div>
+	  </footer>
+	  <!-- End of Footer -->
 
-    </div>
+	</div>
 	<!-- End of Content Wrapper -->
 
-    </div>
+	</div>
 	<!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
+	<i class="fas fa-angle-up"></i>
   </a>
 
   <!-- Logout Modal-->

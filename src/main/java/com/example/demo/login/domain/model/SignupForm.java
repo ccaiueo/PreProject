@@ -2,7 +2,6 @@ package com.example.demo.login.domain.model;
 
 import java.util.Date;
 
-import javax.validation.constraints.AssertFalse;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -44,9 +43,10 @@ public class SignupForm {
     @Max(value = 100, message = "{max_check}")
     private int age; // 年齢
 
-    //falseのみ可能
-    @AssertFalse(message = "{false_check}")
-    private boolean sex; // 性別ステータス
+    //falseのみ可能 ※ここBooleanにしたかったがOracleにBoolean型がないので妥協、、、
+    //@AssertFalse(message = "{false_check}")
+
+    private String sex; // 性別ステータス
 }
 
 /*

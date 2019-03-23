@@ -99,7 +99,7 @@ public class SignupController {
         user.setPassword(form.getPassword()); //パスワード
         user.setBirthday(form.getBirthday()); //誕生日
         user.setAge(form.getAge()); //年齢
-        user.setSex(form.isSex()); //結婚ステータス
+        user.setSex(form.getSex()); //性別ステータス
         user.setRole("ROLE_GENERAL"); //ロール（一般）
 
         // ユーザー登録処理

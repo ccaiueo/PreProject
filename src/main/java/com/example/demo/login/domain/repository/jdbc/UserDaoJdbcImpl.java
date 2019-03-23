@@ -22,7 +22,7 @@ public class UserDaoJdbcImpl implements UserDao{
 	public int count() throws DataAccessException{
 
 		// Objectの取得
-		// 全県取得してカウント
+		// 全件取得してカウント
 		int count = jdbc.queryForObject("SELECT COUNT(*) FROM m_user", Integer.class);
 
 		return count;
@@ -46,7 +46,7 @@ public class UserDaoJdbcImpl implements UserDao{
                 user.getUserName(),
                 user.getBirthday(),
                 user.getAge(),
-                user.isSex(),
+                user.getSex(),
                 user.getRole());
 
         return rowNumber;
@@ -61,6 +61,10 @@ public class UserDaoJdbcImpl implements UserDao{
     // Userテーブルの全データを取得.
     @Override
     public List<User> selectMany() throws DataAccessException {
+
+    	////////////////////////////////////////
+    	// ここ後から変数の中身を表示させて中身を理解する
+    	////////////////////////////////////////
 
         // M_USERテーブルのデータを全件取得
         List<Map<String, Object>> getList = jdbc.queryForList("SELECT * FROM m_user");
@@ -79,8 +83,8 @@ public class UserDaoJdbcImpl implements UserDao{
             user.setPassword((String) map.get("password")); //パスワード
             user.setUserName((String) map.get("user_name")); //ユーザー名
             user.setBirthday((Date) map.get("birthday")); //誕生日
-            user.setAge((Integer) map.get("age")); //年齢
-            user.setSex((Boolean) map.get("sex")); //結婚ステータス
+            user.setAge((Integer) Integer.parseInt(map.get("age").toString())); //年齢
+            user.setSex((String) map.get("sex")); //性別ステータス
             user.setRole((String) map.get("role")); //ロール
 
             //結果返却用のListに追加
