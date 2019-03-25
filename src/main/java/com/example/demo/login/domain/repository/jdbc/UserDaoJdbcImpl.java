@@ -12,21 +12,22 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.login.domain.model.User;
 import com.example.demo.login.domain.repository.UserDao;
+
 @Repository
 public class UserDaoJdbcImpl implements UserDao{
 
 	@Autowired
 	JdbcTemplate jdbc;
 
-	@Override
-	public int count() throws DataAccessException{
+    // Userテーブルの件数を取得.
+    @Override
+    public int count() throws DataAccessException {
 
-		// Objectの取得
-		// 全件取得してカウント
-		int count = jdbc.queryForObject("SELECT COUNT(*) FROM m_user", Integer.class);
+        // 全件取得してカウント
+        int count = jdbc.queryForObject("SELECT COUNT(*) FROM m_user", Integer.class);
 
-		return count;
-	}
+        return count;
+    }
 
     // Userテーブルにデータを1件insert.
     @Override
@@ -52,19 +53,33 @@ public class UserDaoJdbcImpl implements UserDao{
         return rowNumber;
     }
 
-	@Override
-	public User selectOne(String userId) throws DataAccessException{
+    // Userテーブルのデータを１件取得
+    @Override
+    public User selectOne(String userId) throws DataAccessException {
 
-		return null;
-	}
+        // １件取得
+        Map<String, Object> map = jdbc.queryForMap("SELECT * FROM m_user"
+                + " WHERE user_id = ?", userId);
+
+        // 結果返却用の変数
+        User user = new User();
+
+        // 取得したデータを結果返却用の変数にセットしていく
+        user.setUserId((String) map.get("user_id")); //ユーザーID
+        user.setPassword((String) map.get("password")); //パスワード
+        user.setUserName((String) map.get("user_name")); //ユーザー名
+        user.setBirthday((Date) map.get("birthday")); //誕生日
+        // user.setAge((Integer) map.get("age")); //年齢
+        user.setAge((Integer) Integer.parseInt(map.get("age").toString())); //年齢
+        user.setSex((String) map.get("sex")); //性別ステータス
+        user.setRole((String) map.get("role")); //ロール
+
+        return user;
+    }
 
     // Userテーブルの全データを取得.
     @Override
     public List<User> selectMany() throws DataAccessException {
-
-    	////////////////////////////////////////
-    	// ここ後から変数の中身を表示させて中身を理解する
-    	////////////////////////////////////////
 
         // M_USERテーブルのデータを全件取得
         List<Map<String, Object>> getList = jdbc.queryForList("SELECT * FROM m_user");

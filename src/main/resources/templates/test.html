@@ -49,19 +49,26 @@
               <!-- メモ -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">メモ</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">やろうと思ってること</h6>
                 </div>
                 <div class="card-body">
-                  <h6 class="m-0 font-weight-bold text-secondery">リンク</h6>
-                  <a href=http://localhost:8080/admin/dashboard>・ダッシュボード</a>
-                  <h6 class="m-0 font-weight-bold text-secondery">やろうと思ってること</h6>
                   <p class="m-0">・ログインフォーム作りたい</p>
                   <p class="m-0">・ファイルを格納して取り出すまでやりたい</p>
-                  <p class="m-0">・画像を格納して取り出すまでやりたい</p>
+                  <p class="m-0">・画像を格納して取り出すまでやりたい(ドラッグでの保存も！)</p>
+                </div>
+                                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">理解したいとこ</h6>
+                </div>
+                <div class="card-body">
+                  <h6 class="m-0 font-weight-bold text-secondery">・Select</h6>
+                  <p class="m-0">　↓ に格納されている値が見たい ↓（UserDaoJdbcImpl.java） </p>
+                  <!-- List<Map<String, Object>> getList = jdbc.queryForList("SELECT * FROM m_user") -->
+                  <p class="m-0">　line 70 : List&lt;Map&lt;String, Object>> getList = jdbc.queryForList("SELECT * FROM m_user");</p>
+				  <!-- for (Map<String, Object> map : getList) -->
+                  <p class="m-0">　line 76 : for (Map&lt;String, Object> map : getList)</p>
 
-                  <h6 class="m-0 mt-2 font-weight-bold text-secondery">変更したとこ</h6>
-                  <p class="m-0">・DBから値持ってこれた！　→課題：2行目以降を取りたい、、、</p>
-                  <p class="m-0">・ユーザー新規登録ページ作成中　→課題：年齢に全角入れた場合とかのエラーメッセージが英語</p>
+                  <h6 class="m-0 mt-2 font-weight-bold text-secondery">・Oracle⇔Java間でのbool型の扱い</h6>
+                  <p class="m-0">　今はVARCHAR⇔Stringで表示させてる</p>
                 </div>
               </div>
             </div>
