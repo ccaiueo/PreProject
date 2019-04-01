@@ -55,4 +55,21 @@ public class UserService {
 
 	}
 
+	// 1件更新用メソッド
+	public boolean updateOne(User user){
+
+		// 1件更新
+		int rowNumber = dao.updateOne(user);
+
+		// 判定用変数
+		boolean result = false;
+
+		if(rowNumber > 0) {
+
+			// update成功
+			result = true;
+		}
+
+		return result;
+	}
 }
