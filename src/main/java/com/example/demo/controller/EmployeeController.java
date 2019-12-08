@@ -13,6 +13,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.demo.entity.BondInfo;
 import com.example.demo.service.DBService;
 
+/**
+ * あそびばのページ関係のコントローラ
+ * @author eharada
+ *
+ */
 @Controller("/registration")
 public class EmployeeController {
 

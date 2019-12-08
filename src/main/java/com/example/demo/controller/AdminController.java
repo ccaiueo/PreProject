@@ -12,6 +12,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import com.example.demo.ProjectApplication;
 import com.example.demo.formbean.UserInfo;
 import com.example.demo.service.DBService;
+import com.example.demo.util.AdminLog;
 
 /**
  * <b>トップControllerクラス.</b><br>
@@ -59,6 +60,9 @@ public class AdminController {
 
     	// プロパティファイル出力テスト
     	System.out.println(ProjectApplication.propertiesMap.toString());
+
+    	AdminLog logger = new AdminLog();
+    	logger.logError("ログテストだよ");
 
     	// メニュー用
     	model.addAttribute("dashboard", "active");
