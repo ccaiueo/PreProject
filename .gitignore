@@ -25,4 +25,4 @@
 /build/
 
 .mvn/wrapper/MavenWrapperDownloader.java
-src/main/resources/application.properties
+#src/main/resources/application.properties

@@ -35,23 +35,22 @@ public class EmployeeController {
 	DBService service;
 
     @RequestMapping("/show")
-    public ModelAndView show(ModelAndView models) {
+    public String show(Model models) {
 
 
     	BondInfo formbean = new BondInfo();
         formbean.setIssuerCd("070707");
-        models.addObject("bondInfoBean", formbean);
-        models.addObject("aiueo", "aiueo");
-        models.addObject("pageTitle", PAGE_TITLE.BOND_REGISTRATION);
-        models.setViewName("bondregistration");
+        models.addAttribute("bondInfoBean", formbean);
+        models.addAttribute("aiueo", "aiueo");
+        models.addAttribute("pageTitle", PAGE_TITLE.BOND_REGISTRATION);
 
         // for test
 
-        // Mybatis
-        System.out.println("mapper(xml使用): " + service.get());
-        System.out.println("mapper(@使用) : " + service.select());
+        // // Mybatis
+        // System.out.println("mapper(xml使用): " + service.get());
+        // System.out.println("mapper(@使用) : " + service.select());
 
-        return models;
+        return "bondRegistration";
     }
 
     @RequestMapping("/confirm")

@@ -67,7 +67,7 @@
 			<artifactId>ojdbc7</artifactId>
 			<version>12.1.0</version>
 			<scope>system</scope>
-			<systemPath>${basedir}/lib/ojdbc7.jar</systemPath>
+			<systemPath>${project.basedir}/lib/ojdbc7.jar</systemPath>
 		</dependency>
 
 		<!-- Oracle18c用 -->
@@ -76,7 +76,7 @@
 			<artifactId>ojdbc8</artifactId>
 			<version>18.4.0</version>
 			<scope>system</scope>
-			<systemPath>${basedir}/lib/ojdbc8.jar</systemPath>
+			<systemPath>${project.basedir}/lib/ojdbc8.jar</systemPath>
 		</dependency>
 
 		<!-- javax用 -->
@@ -91,7 +91,7 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 			<scope>system</scope>
-			<systemPath>${basedir}/lib/log4j-1.2.17.jar</systemPath>
+			<systemPath>${project.basedir}/lib/log4j-1.2.17.jar</systemPath>
 		</dependency>
 
 	</dependencies>
